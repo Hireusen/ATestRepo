@@ -29,4 +29,6 @@ public class PlayerMover : MonoBehaviour
             _player.transform.position += direction * _moveSpeed * Time.deltaTime;
         }
     }
+
+    // 안녕하세요!
 }
