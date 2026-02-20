@@ -177,4 +177,7 @@ public class PlayerMover : MonoBehaviour
         }
     }
     #endregion
+
+    //주석을 달아보았습니다. - 진주
+
 }
