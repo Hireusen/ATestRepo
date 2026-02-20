@@ -17,10 +17,16 @@ public class PlayerMover : MonoBehaviour
     {
         if (_player == null)
             return;
-        if (!Input.GetKey(KeyCode.W))
-            return;
 
-        Vector3 move = _player.forward * _moveSpeed * Time.deltaTime;
-        _player.transform.position += move;
+        float v = 0f, h = 0f;
+        if (Input.GetKey(KeyCode.W)) h += 1f;
+        if (Input.GetKey(KeyCode.S)) h -= 1f;
+        if (Input.GetKey(KeyCode.A)) v += 1f;
+        if (Input.GetKey(KeyCode.D)) v -= 1f;
+
+        if(h != 0f || v != 0f) {
+            Vector3 move = _player.forward * _moveSpeed * Time.deltaTime;
+            _player.transform.position += move;
+        }
     }
 }
