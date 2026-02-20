@@ -19,14 +19,14 @@ public class PlayerMover : MonoBehaviour
             return;
 
         float v = 0f, h = 0f;
-        if (Input.GetKey(KeyCode.W)) h += 1f;
-        if (Input.GetKey(KeyCode.S)) h -= 1f;
-        if (Input.GetKey(KeyCode.A)) v += 1f;
-        if (Input.GetKey(KeyCode.D)) v -= 1f;
+        if (Input.GetKey(KeyCode.W)) v += 1f;
+        if (Input.GetKey(KeyCode.S)) v -= 1f;
+        if (Input.GetKey(KeyCode.A)) h += 1f;
+        if (Input.GetKey(KeyCode.D)) h -= 1f;
 
         if(h != 0f || v != 0f) {
-            Vector3 move = _player.forward * _moveSpeed * Time.deltaTime;
-            _player.transform.position += move;
+            Vector3 direction = (_player.forward * v + _player.right * h).normalized;
+            _player.transform.position += direction * _moveSpeed * Time.deltaTime;
         }
     }
 }
