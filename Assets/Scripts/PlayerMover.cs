@@ -17,7 +17,10 @@ public class PlayerMover : MonoBehaviour
     {
         if (_player == null)
             return;
+        if (!Input.GetKey(KeyCode.W))
+            return;
 
-        _player.transform.position
+        Vector3 move = _player.forward * _moveSpeed * Time.deltaTime;
+        _player.transform.position += move;
     }
 }
